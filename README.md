@@ -4,12 +4,12 @@ Repositorio con los ejercicios prácticos del módulo de **Proyecto Integrado**.
 
 ## Estructura
 
-### `01_ansible/` — Automatización con Ansible
+### `ansible/` — Automatización con Ansible
 
-- **`ejercicio2/`** — Playbook básico: actualización del sistema, instalación de paquetes, copia de ficheros, uso de templates Jinja2 y gestión de bases de datos MariaDB.
-- **`ejercicio3/`** — Playbook con roles: organización en roles `commons`, `apache2` y `mariadb`, con handlers, templates y ficheros de configuración propios de cada rol.
+- **`ejercicio4/`** — Playbook básico: actualización del sistema, instalación de paquetes, copia de ficheros, uso de templates Jinja2 y gestión de bases de datos MariaDB.
+- **`ejercicio5/`** — Playbook con roles: organización en roles `commons`, `apache2` y `mariadb`, con handlers, templates y ficheros de configuración propios de cada rol.
 
-### `02_opentofu/` — Infraestructura como código con OpenTofu + libvirt
+### `opentofu/` — Infraestructura como código con OpenTofu + libvirt
 
 Todos los ejemplos usan clones ligeros (backing store) sobre una imagen base qcow2 y cloud-init para la configuración inicial. Los nombres de recursos llevan el prefijo `ejN-` para evitar conflictos entre ejemplos.
 
@@ -23,6 +23,8 @@ Todos los ejemplos usan clones ligeros (backing store) sobre una imagen base qco
 
 - **`ejemplo5/`** — 2 VMs: server1 (Debian) y server2 (Ubuntu). Server1 actúa como gateway con acceso exterior via NAT (`ej5-nat-dhcp`) y conectividad interna en red muy aislada (`ej5-muy-aislada`, 10.0.0.1). Server2 solo tiene red muy aislada (10.0.0.2, gateway 10.0.0.1). Escenario de red privada con un único punto de salida.
 
-### `03_proyecto1/` — Infraestructura base del Proyecto 1
+### `proyecto1/` — Infraestructura base del Proyecto 1 ⚠️
 
 Escenario con 2 VMs (apache2 en Debian y mariadb en Ubuntu) conectadas a tres redes: una exterior NAT con DHCP, una red de gestión y una red de datos, ambas aisladas con IPs estáticas. Sirve como infraestructura base sobre la que se desarrolla el Proyecto 1.
+
+**Incompatible con el plan actual**: usa el provider `libvirt`, pero el Proyecto 1 del curso se ha planteado sobre **OpenStack**. Hay que decidir si se adapta este escenario al provider `openstack` o si se sustituye.
