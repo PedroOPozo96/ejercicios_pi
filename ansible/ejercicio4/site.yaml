@@ -31,16 +31,22 @@
         group: www-data
         mode: 0644
 
-      # Crear base de datos
+
+
+     # Crear base de datos
     - name: "Crear base de datos"
       community.mysql.mysql_db:
         name: "{{ bd_name }}"
         state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
 
-      # Crear usuario de base de datos
+
+
+    # Crear usuario de base de datos
     - name: "Crear usuario de base de datos"
       community.mysql.mysql_user:
         name: "{{ bd_user }}"
         password: "{{ bd_pass }}"
         priv: "{{ bd_name }}.*:ALL"
         state: present
+        login_unix_socket: /run/mysqld/mysqld.sock
